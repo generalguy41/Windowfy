@@ -1,0 +1,38 @@
+{
+    "manifest_version": 2,
+    "name": "Windowfy",
+    "version": "1.0",
+  
+    "description": "Maximizes video elements to fit the window",
+
+    "icons": {
+      "96": "icons/windowfy-96.png"
+    },
+
+    "browser_action": {
+      "default_icon": "icons/windowfy-96.png",
+      "default_title": "Windowfy"
+    },
+    
+    "content_scripts": [
+      {
+        "matches": ["*://*/"],
+        "js": ["windowfy.js", "expand.js"]
+      }
+    ],
+
+    "permissions": [
+      "activeTab",
+      "tabs",
+      "storage",
+      "contextMenus",
+      "webRequest",
+      "webRequestBlocking",
+      "<all_urls>"
+    ],
+
+    "background": {
+      "scripts": ["windowfy.js", "test.js"]
+    }
+  
+  }
