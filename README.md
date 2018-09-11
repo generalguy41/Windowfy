@@ -4,7 +4,6 @@
 This extension is designed to allow you to view videos at full window size if you want more video real estate but don't want to go full screen. Videos will scale to the size of the window regardless of resolution/aspect ratio.
 
 ## How-to
----
 
 1. Play a video on one of the confirmed sites.
 2. Right-click somewhere on the page and press Windowfy from the dropdown menu.
@@ -13,7 +12,6 @@ This extension is designed to allow you to view videos at full window size if yo
 
 ![Main](docs/screenshots/screenshot_2.png) ![Main](docs/screenshots/screenshot_3.png)
 ## Works with
----
 
 ### Browsers:
 - Firefox
@@ -25,7 +23,6 @@ This extension is designed to allow you to view videos at full window size if yo
 - YouTube
 
 ## Known Issues
----
 
 - Activating the extension while the video is already Windowfied will not allow you to return to the original video size without a page refresh.
 - If viewing a video that is Windowfied, and the aspect ratio of the browser window does not match the aspect ratio of the video, you will see the page content behind the video.
@@ -39,7 +36,6 @@ This extension is designed to allow you to view videos at full window size if yo
 - [YouTube] Video timeline thumbnail is located in the middle of the video when not in theater mode.
 
 ## Goals
----
 
 - Add more sites
 - Migrate to Chrome, other browsers eventually
