@@ -1,5 +1,5 @@
 # Windowfy
-![Main](docs/screenshots/screenshot_1.png)
+![Main](assets/docs/screenshots/screenshot_1.png)
 
 This extension is designed to allow you to view videos at full window size if you want more video real estate but don't want to go full screen. Videos will scale to the size of the window regardless of resolution/aspect ratio.
 
@@ -10,7 +10,7 @@ This extension is designed to allow you to view videos at full window size if yo
 3. That's it! To get back to the original video size, press Esc.
 
 
-![Main](docs/screenshots/screenshot_2.png) ![Main](docs/screenshots/screenshot_3.png)
+![Main](assets/docs/screenshots/screenshot_2.png) ![Main](assets/docs/screenshots/screenshot_3.png)
 ## Works with
 
 ### Browsers:

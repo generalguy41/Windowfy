@@ -1,4 +1,6 @@
-// var test = require('./test.js');
+// require.config({ baseUrl: "./" })
+
+// var test = require(['test.js'], function(test){ console.log(test)});
 // console.log(test);
 var video = {
     "new": {
@@ -91,12 +93,16 @@ function setOriginalValues(property, value){
     let origProperty = {};
     for (let element of property){
         let docCall = Object.keys(value.new)[Object.keys(value.new).indexOf(element)];
+        // console.log(docCall);
         for (let key of Object.keys(value.new[element])){
             let value = window.getComputedStyle(eval(element)).getPropertyValue(key);
+            // console.log(value)
             originalValues[key] = value;
         }
+        // console.log(originalValues);
         origProperty[docCall] = JSON.parse(JSON.stringify(originalValues));
     }
+    // console.log(origProperty)
     value.original = origProperty;
 }
 
@@ -148,7 +154,7 @@ function checkState(property, value){
     }
 }
 
-if (document.URL.match("youtube")){
+if (!!document.URL.match("youtube")){
     if (!checkState(eval(Object.keys(video.new)), video)){
         this.setOriginalValues(eval(Object.keys(video.new)), video);
         this.setStyles(eval(Object.keys(video.new)), video);
@@ -157,15 +163,15 @@ if (document.URL.match("youtube")){
     } else {
         resetValues();
     }
-} else if (document.URL.match("crunchyroll")){
+} else if (!!document.URL.match("crunchyroll")){
     this.setOriginalValues(eval(Object.keys(crunchyroll.new)), crunchyroll);
     this.setStyles(eval(Object.keys(crunchyroll.new)), crunchyroll);
 
-} else if (document.URL.match("masterani")){
+} else if (!!document.URL.match("masterani")){
     this.setOriginalValues(eval(Object.keys(masteranime.new)), masteranime);
     this.setStyles(eval(Object.keys(masteranime.new)), masteranime);
 
-} else if (document.URL.match("vimeo")){
+} else if (!!document.URL.match("vimeo")){
     this.setOriginalValues(eval(Object.keys(vimeo.new)), vimeo);
     this.setStyles(eval(Object.keys(vimeo.new)), vimeo);
 
@@ -176,7 +182,7 @@ if (document.URL.match("youtube")){
 
 document.onkeypress = function (e) {
     e = e || window.event;
-    // console.log(e);
+    console.log(e);
     if (e.key == "Escape"){
         resetValues();
 

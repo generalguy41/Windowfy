@@ -1,25 +1,37 @@
 {
     "manifest_version": 2,
     "name": "Windowfy",
+    "author": "Sebastian Guy",
     "version": "1.0",
   
     "description": "Maximizes video elements to fit the window",
 
-    "icons": {
-      "96": "icons/windowfy-96.png"
-    },
+    "background": {
+      "page": "background.html",
+      "persistent": true
+    },  
 
     "browser_action": {
-      "default_icon": "icons/windowfy-96.png",
+      "default_icon": "assets/icons/windowfy-96.png",
       "default_title": "Windowfy"
     },
     
     "content_scripts": [
       {
         "matches": ["*://*/"],
-        "js": ["windowfy.js", "expand.js"]
+        "js": [
+          "scripts/require.js",
+          "scripts/expand.js"
+        ],
+        "run_at": "document_end"
       }
     ],
+
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self';",
+
+    "icons": {
+      "96": "assets/icons/windowfy-96.png"
+    },
 
     "permissions": [
       "activeTab",
@@ -29,10 +41,5 @@
       "webRequest",
       "webRequestBlocking",
       "<all_urls>"
-    ],
-
-    "background": {
-      "scripts": ["windowfy.js", "test.js"]
-    }
-  
+    ]
   }
