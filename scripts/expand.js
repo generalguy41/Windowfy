@@ -2,6 +2,14 @@
 
 // var test = require(['test.js'], function(test){ console.log(test)});
 // console.log(test);
+var iframe;
+var resetFocus = setInterval(() => {
+    // console.log(document.activeElement);
+    if (document.activeElement == iframe){
+        document.activeElement.blur();
+    }
+}, 500);
+
 var video = {
     "new": {
         "document.querySelector('video')": {
@@ -23,6 +31,18 @@ var youtube = {
             "position": "fixed",
             "z-index": "100",
             "bottom": "0"
+        }
+    }
+}
+var funimation = {
+    "new": {
+        "document.getElementsByClassName('col-md-10 video-player-container')[0]":{
+            "z-index": "9001",
+            "position": "fixed",
+            "width": "100vw",
+            "height": "100vh",
+            "top": "0",
+            "left": "0"
         }
     }
 }
@@ -93,16 +113,12 @@ function setOriginalValues(property, value){
     let origProperty = {};
     for (let element of property){
         let docCall = Object.keys(value.new)[Object.keys(value.new).indexOf(element)];
-        // console.log(docCall);
         for (let key of Object.keys(value.new[element])){
             let value = window.getComputedStyle(eval(element)).getPropertyValue(key);
-            // console.log(value)
             originalValues[key] = value;
         }
-        // console.log(originalValues);
         origProperty[docCall] = JSON.parse(JSON.stringify(originalValues));
     }
-    // console.log(origProperty)
     value.original = origProperty;
 }
 
@@ -111,6 +127,8 @@ function resetValues(){
         this.resetStyles(eval(Object.keys(youtube.original)), youtube);
     } else if (document.URL.match("crunchyroll")){
         this.resetStyles(eval(Object.keys(crunchyroll.original)), crunchyroll);
+    } else if (document.URL.match("funimation")){
+        this.resetStyles(eval(Object.keys(funimation.original)), funimation);
     } else if (document.URL.match("masterani")){
         this.resetStyles(eval(Object.keys(masteranime.original)), masteranime);
     } else if (document.URL.match("vimeo")){
@@ -153,47 +171,80 @@ function checkState(property, value){
         }
     }
 }
+// console.log(localStorage.getItem("windowfied"))
+// if (localStorage.getItem("windowfied") == "true") {
+//     console.log("full window");
+//     clearInterval(resetFocus);
+//     localStorage.setItem("windowfied", "false");
+//     resetValues();
+// } else if (localStorage.getItem("windowfied") == "false" || localStorage.getItem("windowfied") == null) {
+//     console.log("regular size");
+//     localStorage.setItem("windowfied", "true");
+    if (!!document.URL.match("youtube")){
+        if (!checkState(eval(Object.keys(video.new)), video)){
+            this.setOriginalValues(eval(Object.keys(video.new)), video);
+            this.setStyles(eval(Object.keys(video.new)), video);
+            this.setOriginalValues(eval(Object.keys(youtube.new)), youtube);
+            this.setStyles(eval(Object.keys(youtube.new)), youtube);
+        } else {
+            resetValues();
+        }
+    } else if (!!document.URL.match("crunchyroll")){
+        this.setOriginalValues(eval(Object.keys(crunchyroll.new)), crunchyroll);
+        this.setStyles(eval(Object.keys(crunchyroll.new)), crunchyroll);
 
-if (!!document.URL.match("youtube")){
-    if (!checkState(eval(Object.keys(video.new)), video)){
+        iframe = document.querySelectorAll('iframe')[0];
+        resetFocus;
+        
+    } else if (!!document.URL.match("funimation")){
+        this.setOriginalValues(eval(Object.keys(funimation.new)), funimation);
+        this.setStyles(eval(Object.keys(funimation.new)), funimation);
+
+        iframe = document.querySelectorAll('iframe')[0];
+        resetFocus;
+
+    } else if (!!document.URL.match("masterani")){
+        this.setOriginalValues(eval(Object.keys(masteranime.new)), masteranime);
+        this.setStyles(eval(Object.keys(masteranime.new)), masteranime);
+
+        iframe = document.querySelectorAll('iframe')[0];
+        resetFocus;
+        
+    } else if (!!document.URL.match("vimeo")){
+        this.setOriginalValues(eval(Object.keys(vimeo.new)), vimeo);
+        this.setStyles(eval(Object.keys(vimeo.new)), vimeo);
+
+    } else {
         this.setOriginalValues(eval(Object.keys(video.new)), video);
         this.setStyles(eval(Object.keys(video.new)), video);
-        this.setOriginalValues(eval(Object.keys(youtube.new)), youtube);
-        this.setStyles(eval(Object.keys(youtube.new)), youtube);
-    } else {
-        resetValues();
     }
-} else if (!!document.URL.match("crunchyroll")){
-    this.setOriginalValues(eval(Object.keys(crunchyroll.new)), crunchyroll);
-    this.setStyles(eval(Object.keys(crunchyroll.new)), crunchyroll);
 
-} else if (!!document.URL.match("masterani")){
-    this.setOriginalValues(eval(Object.keys(masteranime.new)), masteranime);
-    this.setStyles(eval(Object.keys(masteranime.new)), masteranime);
+    document.onkeypress = function (e) {
+        e = e || window.event;
+        // console.log(e);
 
-} else if (!!document.URL.match("vimeo")){
-    this.setOriginalValues(eval(Object.keys(vimeo.new)), vimeo);
-    this.setStyles(eval(Object.keys(vimeo.new)), vimeo);
+        if (e.key == "Escape"){
+            localStorage.setItem("windowfied", "false");
+            clearInterval(resetFocus);
+            resetValues();
 
-} else {
-    this.setOriginalValues(eval(Object.keys(video.new)), video);
-    this.setStyles(eval(Object.keys(video.new)), video);
-}
-
-document.onkeypress = function (e) {
-    e = e || window.event;
-    console.log(e);
-    if (e.key == "Escape"){
-        resetValues();
-
-        //   var state = {
-        //     expanded: false
-        //   }
-        //   browser.storage.local.set({state});
+            //   var state = {
+            //     expanded: false
+            //   }
+            //   browser.storage.local.set({state});
+        }
     }
-}
+// }
 
+// iframe.onfocus = () => {
+//     console.log(iframe);
+//     document.activeElement.blur();
+// }
 
+// document.onblur = () => {
+//     console.log(iframe);
+//     document.activeElement.blur();
+// }
 // var bg = document.createElement("div");
 //     bg.setAttribute("id", "windowfy-overlay");
 
@@ -214,3 +265,5 @@ document.onkeypress = function (e) {
 //     element.style.top = "0";
 //     element.style.left = "0";
 // }
+
+undefined;
