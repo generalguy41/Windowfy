@@ -26,7 +26,7 @@ This extension is designed to allow you to view videos at full window size if yo
 
 ## Known Issues
 
-- Activating the extension while the video is already Windowfied may not allow you to return to the original video size without a page refresh.
+- Activating the extension via the browser toolbar button while the video is already Windowfied may not allow you to return to the original video size without a page refresh.
 - If viewing a video that is Windowfied, and the aspect ratio of the browser window does not match the aspect ratio of the video, you may see the page content behind the video.
 - [Crunchyroll] Occasional z-indexing issues where a popup from a video preview may show up above the video. Fix is to press Esc, hover over the offending video link until the popup goes away, and Windowfy again.
 - [Vimeo] If you scroll the page while the video is playing, the video will revert to it's previous size. Fix is to press Esc, and Windowfy again.
