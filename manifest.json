@@ -7,8 +7,7 @@
     "description": "Maximizes video elements to fit the window",
 
     "background": {
-      "page": "background.html",
-      "persistent": true
+      "page": "background.html"
     },  
 
     "browser_action": {
@@ -20,8 +19,7 @@
       {
         "matches": ["*://*/"],
         "js": [
-          "scripts/require.js",
-          "scripts/expand.js"
+          "scripts/windowfy.js"
         ],
         "run_at": "document_end"
       }

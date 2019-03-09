@@ -1,0 +1,25 @@
+{
+  "name": "windowfy",
+  "version": "1.0.0",
+  "description": "Maximizes video elements to fit the window",
+  "main": "index.js",
+  "dependencies": {
+    "eslint": "^5.15.1"
+  },
+  "devDependencies": {
+    "eslint": "^5.15.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/generalguy41/Windowfy.git"
+  },
+  "author": "Sebastian Guy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/generalguy41/Windowfy/issues"
+  },
+  "homepage": "https://github.com/generalguy41/Windowfy#readme"
+}
