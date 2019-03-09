@@ -1,4 +1,12 @@
 /* eslint-disable no-undef */
+var iframe;
+var resetFocus = setInterval(() => {
+    // console.log(document.activeElement);
+    if (document.activeElement == iframe){
+        document.activeElement.blur();
+    }
+}, 500);
+
 function setStyles(property, value){
     for (let elements of property){
         let docElement = eval(elements);
@@ -41,8 +49,6 @@ function resetValues(){
         resetStyles(eval(Object.keys(SITES.vimeo.original)), SITES.vimeo);
     }
     resetStyles(eval(Object.keys(SITES.general.original)), SITES.general);
-    // document.body.removeChild(bg);
-    // document.body.style.overflow = "auto";
 }
 
 function resetStyles(property, value){
@@ -84,6 +90,9 @@ if (document.URL.match("moz-extension") == null){
             if (document.URL.match(site)){
                 setOriginalValues(eval(Object.keys(Object.values(SITES)[index].new)), Object.values(SITES)[index]);
                 setStyles(eval(Object.keys(Object.values(SITES)[index].new)), Object.values(SITES)[index]);
+
+                iframe = document.querySelectorAll('iframe')[0];
+                resetFocus;
             }
         });
     } else {
@@ -94,35 +103,20 @@ if (document.URL.match("moz-extension") == null){
 document.onkeydown = (e) => {
     e = e || window.event;
     if (e.key == "Escape"){
+        localStorage.setItem("windowfied", "false");
+        clearInterval(resetFocus);
         resetValues();
-
-        //   var state = {
-        //     expanded: false
-        //   }
-        //   browser.storage.local.set({state});
     }
 }
 
+// iframe.onfocus = () => {
+//     console.log(iframe);
+//     document.activeElement.blur();
+// }
 
-// var bg = document.createElement("div");
-//     bg.setAttribute("id", "windowfy-overlay");
-
-//     bg.style.position = "fixed";
-//     bg.style.width = "100vw";
-//     bg.style.height = "100vh";
-//     bg.style.zIndex = "9";
-//     bg.style.backgroundColor = "#000";
-
-// document.body.appendChild(bg);
-// document.body.style.overflow = "hidden";
-
-// function setStyles(element, zIndex){
-//     element.style.position = "fixed";
-//     element.style.width = "100vw";
-//     element.style.height = "100vh";
-//     element.style.zIndex = zIndex;
-//     element.style.top = "0";
-//     element.style.left = "0";
+// document.onblur = () => {
+//     console.log(iframe);
+//     document.activeElement.blur();
 // }
 
 undefined;
