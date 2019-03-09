@@ -19,7 +19,7 @@
       {
         "matches": ["*://*/"],
         "js": [
-          "scripts/windowfy.js"
+          "js/windowfy.js"
         ],
         "run_at": "document_end"
       }
