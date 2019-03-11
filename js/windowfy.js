@@ -37,14 +37,13 @@ function setOriginalValues(domElements, site){
     
     for (let element of domElements){
         let origSiteValues = {};
-        let docCall = Object.keys(site.new)[Object.keys(site.new).indexOf(element)];
 
         for (let key of Object.keys(site.new[element])){
             let site = window.getComputedStyle(eval(element)).getPropertyValue(key);
 
             origSiteValues[key] = site;
         }
-        origDomElements[docCall] = JSON.parse(JSON.stringify(origSiteValues));
+        origDomElements[element] = origSiteValues;
     }
     site.original = origDomElements;
 }

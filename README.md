@@ -17,7 +17,7 @@ This extension is designed to allow you to view videos at full window size if yo
 - Firefox
 - Chrome*
 
-The extension has not been developed/tested for:
+The extension has not yet been developed/tested for:
 - Opera
 - Safari
 - Microsoft Edge
@@ -32,9 +32,9 @@ The extension has not been developed/tested for:
 - YouTube
 
 _* Should also support Chromium based browsers/browsers that are compatible with the Chrome Web Store (such as Vivaldi, etc.)._  
-_** Vimeo went premium, so needs further testing._
+_** Vimeo went premium during development, so needs further testing._
 
-## Installing a Web Extension
+## Sideloading a Web Extension
 
 ### Firefox:
 1. Open a new window, and in the URL bar, type: `about:debugging`.
@@ -65,5 +65,6 @@ The extensions will be installed, and will stay installed until you restart the 
 
 ## Goals
 
-- Add more sites
-- Test on/migrate to other browsers eventually
+- Add more sites.
+- Test on/migrate to other browsers.
+- Possibly add popup/option page for site requests.
