@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 import { sites } from './sites.js'
 
@@ -15,10 +14,6 @@ function windowfy() {
         file: "js/windowfy.js",
     });
 }
-
-chrome.browserAction.onClicked.addListener(() => {
-    windowfy();
-});
 
 chrome.contextMenus.create({
     id: "Windowfy",

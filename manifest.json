@@ -3,24 +3,18 @@
     "name": "Windowfy",
     "author": "Sebastian Guy",
     "version": "1.0",
+    "homepage_url": "https://github.com/generalguy41/Windowfy",
   
-    "description": "Maximizes video elements to fit the window",
+    "description": "Maximize videos to fit the browser window.",
 
     "background": {
       "page": "background.html"
-    },  
-
-    "browser_action": {
-      "default_icon": "assets/icons/windowfy-96.png",
-      "default_title": "Windowfy"
     },
     
     "content_scripts": [
       {
         "matches": ["*://*/"],
-        "js": [
-          "js/windowfy.js"
-        ],
+        "js": ["js/windowfy.js"],
         "run_at": "document_end"
       }
     ],
@@ -34,7 +28,6 @@
     "permissions": [
       "activeTab",
       "tabs",
-      "storage",
       "contextMenus",
       "webRequest",
       "webRequestBlocking",

@@ -1,7 +1,6 @@
 /* eslint-disable no-undef */
 var iframe;
 var resetFocus = setInterval(() => {
-    // console.log(document.activeElement);
     if (document.activeElement == iframe){
         document.activeElement.blur();
     }
@@ -34,10 +33,10 @@ function setStyles(domElements, site){
  * @param {object} site - Full site object.
  */
 function setOriginalValues(domElements, site){
-    let origSiteValues = {};
     let origDomElements = {};
-
+    
     for (let element of domElements){
+        let origSiteValues = {};
         let docCall = Object.keys(site.new)[Object.keys(site.new).indexOf(element)];
 
         for (let key of Object.keys(site.new[element])){
@@ -54,12 +53,18 @@ function setOriginalValues(domElements, site){
  * Reset video to original size.
  */
 function resetValues(){
+    let confirmedSite = false;
+
     Object.keys(SITES).forEach((site, index) => {
         if (document.URL.match(site)){
             resetStyles(eval(Object.keys(Object.values(SITES)[index].original)), Object.values(SITES)[index]);
+            confirmedSite = true;
         }
     });
-    resetStyles(eval(Object.keys(SITES.general.original)), SITES.general);
+    
+    if (!confirmedSite){
+        resetStyles(eval(Object.keys(SITES.general.original)), SITES.general);
+    }
 }
 
 /**
@@ -113,16 +118,25 @@ function checkState(domElements, site){
 
 if (document.URL.match("moz-extension") == null){
     if (!checkState(eval(Object.keys(SITES.general.new)), SITES.general)){
+        let confirmedSite = false;
+
         Object.keys(SITES).forEach((site, index) => {
             if (document.URL.match(site)){
                 setOriginalValues(eval(Object.keys(Object.values(SITES)[index].new)), Object.values(SITES)[index]);
                 setStyles(eval(Object.keys(Object.values(SITES)[index].new)), Object.values(SITES)[index]);
-
-                iframe = document.querySelectorAll('iframe')[0];
-                resetFocus;
+                confirmedSite = true;
             }
         });
+
+        if (!confirmedSite){
+            setOriginalValues(eval(Object.keys(SITES.general.new)), SITES.general);
+            setStyles(eval(Object.keys(SITES.general.new)), SITES.general);
+        }
+        
+        iframe = document.querySelectorAll('iframe')[0];
+        resetFocus;
     } else {
+        clearInterval(resetFocus);
         resetValues();
     }
 }
@@ -130,7 +144,6 @@ if (document.URL.match("moz-extension") == null){
 document.onkeydown = (e) => {
     e = e || window.event;
     if (e.key == "Escape"){
-        localStorage.setItem("windowfied", "false");
         clearInterval(resetFocus);
         resetValues();
     }
