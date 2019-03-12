@@ -25,7 +25,6 @@ The extension has not yet been developed/tested for:
 
 ### Confirmed Sites:
 - Crunchyroll
-- Masterani.me
 - Funimation
 - Streamable
 - Vimeo**

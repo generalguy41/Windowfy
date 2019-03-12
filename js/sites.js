@@ -23,16 +23,6 @@ sites.general = {
         }
     }
 };
-sites.masteranime = {
-    "new": {
-        "document.querySelector('iframe')": {
-            "position": "fixed",
-            "z-index": "1000",
-            "width": "calc(100vw + 8px)",
-            "height": "calc(100vh + 8px)"
-        }
-    }
-};
 sites.streamable = {
     "new": {
         "document.getElementById('player-controls-footer')": {
