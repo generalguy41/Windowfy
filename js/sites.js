@@ -23,6 +23,38 @@ sites.general = {
         }
     }
 };
+sites.globaltv = {
+    "new": {
+        "document.getElementById('corusVideo_PlayerContainer')": {
+            "z-index": "10000000",
+            "position": "fixed",
+            "width": "100vw !important",
+            "height": "100vh !important",
+            "top": "0",
+            "left": "0"
+        },
+        "document.querySelector('video')": {
+            "z-index": "22",
+            "position": "fixed",
+            "width": "100vw",
+            "height": "100vh",
+            "top": "0",
+            "left": "0"
+        }
+    }
+}
+sites.mtv = {
+    "new": {
+        "document.getElementsByClassName('player_holder')[0]": {
+            "z-index": "1000",
+            "position": "absolute",
+            "width": "100vw",
+            "height": "100vh",
+            "top": "0",
+            "left": "0"
+        }
+    }
+}
 sites.streamable = {
     "new": {
         "document.getElementById('player-controls-footer')": {

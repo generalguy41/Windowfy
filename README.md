@@ -26,6 +26,8 @@ The extension has not yet been developed/tested for:
 ### Confirmed Sites:
 - Crunchyroll
 - Funimation
+- GlobalTV
+- MTV (US)
 - Streamable
 - Vimeo**
 - YouTube
