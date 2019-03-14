@@ -16,9 +16,9 @@ This extension is designed to allow you to view videos at full window size if yo
 ### Browsers:
 - Firefox
 - Chrome*
+- Opera
 
 The extension has not yet been developed/tested for:
-- Opera
 - Safari
 - Microsoft Edge
 - Internet Explorer

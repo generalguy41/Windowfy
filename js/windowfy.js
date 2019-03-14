@@ -93,6 +93,12 @@ function resetStyles(domElements, site){
  * @param {object} site - Full site object.
  */
 function checkState(domElements, site){
+    // Funimation uses an iframe so the general video query can't be selected.
+    if (document.URL.match("funimation")){
+        domElements = Object.keys(SITES.funimation.new);
+        site = SITES.funimation;
+    }
+
     for (let element of domElements){
         let wValue, hValue;
 
