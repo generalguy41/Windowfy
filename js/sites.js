@@ -1,7 +1,7 @@
 var sites = {
     "crunchyroll": {
         "new": {
-            "document.getElementById('showmedia_video').childNodes[1]": {
+            "document.querySelector('iframe')": {
                 "z-index": "100",
                 "position": "fixed",
                 "width": "100vw",
@@ -52,6 +52,23 @@ var sites = {
                 "height": "100vh",
                 "top": "0",
                 "left": "0"
+            }
+        }
+    },
+    "kickstarter": {
+        "new": {
+            "document.querySelector('video')": {
+                "z-index": "9",
+                "position": "fixed",
+                "width": "100vw",
+                "height": "100vh",
+                "top": "0",
+                "left": "0"
+            },
+            "document.getElementsByClassName('player_controls')[0]": {
+                "z-index": "10",
+                "position": "fixed",
+                "width": "100%",
             }
         }
     },

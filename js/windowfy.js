@@ -93,10 +93,13 @@ function resetStyles(domElements, site){
  * @param {object} site - Full site object.
  */
 function checkState(domElements, site){
-    // Funimation uses an iframe so the general video query can't be selected.
+    // Both Funimation and Cruncyroll use an iframe so the general video query can't be selected.
     if (document.URL.match("funimation")){
         domElements = Object.keys(SITES.funimation.new);
         site = SITES.funimation;
+    } else if (document.URL.match("crunchyroll")){
+        domElements = Object.keys(SITES.crunchyroll.new);
+        site = SITES.crunchyroll;
     }
 
     for (let element of domElements){

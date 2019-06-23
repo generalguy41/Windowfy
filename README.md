@@ -17,16 +17,17 @@ This extension is designed to allow you to view videos at full window size if yo
 - Firefox
 - Chrome*
 - Opera
+- Microsoft Edge (Chromium version)
 
 The extension has not yet been developed/tested for:
 - Safari
-- Microsoft Edge
 - Internet Explorer
 
 ### Confirmed Sites:
 - Crunchyroll
 - Funimation
 - GlobalTV
+- Kickstarter
 - MTV (US)
 - Streamable
 - Vimeo**
@@ -42,17 +43,21 @@ _** Vimeo went premium during development, so needs further testing._
 2. Click the "Load Temporary Add-on" button.
 3. Navigate to and open the extension's directory and select any file inside the extension.
 
-If you make any changes to the extension's code, on the debugging page where you find the extension there should be a "Reload" button. Pressing that will reset the extension with all changes applied.
-
 ### Chrome:
 1. Open a new window, and in the URL bar, type: `chrome://extensions`.
 2. Toggle the "Developer Mode" switch in the upper right corner.
 3. Click the "Load Unpacked" button in the upper right corner.
 4. Navigate to and select the extension's directory.
 
-If you make any changes to the extension's code, on the debugging page where you find the extension there should be a circular arrow that represents reload. Pressing that will reset the extension with all changes applied.
+### Edge (Chromium version):
+1. Open a new window, and in the URL bar, type: `edge://extensions`.
+2. Toggle the "Developer Mode" switch in the bottom left corner.
+3. Click the "Load Unpacked" button beside the "Installed Extensions" text.
+4. Navigate to and select the extension's directory.
 
-The extensions will be installed, and will stay installed until you restart the browser. 
+If you make any changes to the extension's code, on the debugging page where you find the extension there should be a "Reload" button or circular arrow that represents reload. Pressing that will reset the extension with all changes applied.
+
+The extensions will be installed, and will stay installed until you restart the browser (with exception for Edge, where extensions will remain even after restart). 
 
 ## Known Issues
 
