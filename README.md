@@ -24,6 +24,7 @@ The extension has not yet been developed/tested for:
 - Internet Explorer
 
 ### Confirmed Sites:
+- Animepahe
 - Crunchyroll
 - Funimation
 - GlobalTV

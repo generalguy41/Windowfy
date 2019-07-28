@@ -1,4 +1,22 @@
 var sites = {
+    "animepahe": {
+        "new": {
+            "document.querySelector('iframe')": {
+                "z-index": "100",
+                "position": "fixed",
+                "width": "100vw",
+                "height": "100vh",
+                "top": "0",
+                "left": "0"
+            },
+            "document.getElementsByClassName('theatre-settings')[0]": {
+                "z-index": "0"
+            },
+            "document.getElementsByClassName('main-header')[0]": {
+                "z-index": "0"
+            }
+        }
+    },
     "crunchyroll": {
         "new": {
             "document.querySelector('iframe')": {
@@ -14,7 +32,7 @@ var sites = {
     "funimation": {
         "new": {
             "document.querySelector('iframe')": {
-                "z-index": "9002",
+                "z-index": "99999",
                 "position": "fixed",
                 "width": "100vw",
                 "height": "100vh",
@@ -25,7 +43,7 @@ var sites = {
     },
     "general": {
         "new": {
-            "document.querySelector('video')": {
+            "document.querySelector('video, iframe')": {
                 "z-index": "22",
                 "position": "fixed",
                 "width": "100vw",
